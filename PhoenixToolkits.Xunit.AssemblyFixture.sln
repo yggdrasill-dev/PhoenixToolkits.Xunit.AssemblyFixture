@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Xunit.AssemblyFixture", "PhoenixToolkits.Xunit.AssemblyFixture\PhoenixToolkits.Xunit.AssemblyFixture.csproj", "{5FA8E4A5-9952-4A83-9F81-82C9C93D2A8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Xunit.AssemblyFixture.UnitTests", "PhoenixToolkits.Xunit.AssemblyFixture.UnitTests\PhoenixToolkits.Xunit.AssemblyFixture.UnitTests.csproj", "{980A1BFC-B6EE-425B-B57E-33F01BCBC0CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FA8E4A5-9952-4A83-9F81-82C9C93D2A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FA8E4A5-9952-4A83-9F81-82C9C93D2A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FA8E4A5-9952-4A83-9F81-82C9C93D2A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FA8E4A5-9952-4A83-9F81-82C9C93D2A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980A1BFC-B6EE-425B-B57E-33F01BCBC0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980A1BFC-B6EE-425B-B57E-33F01BCBC0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980A1BFC-B6EE-425B-B57E-33F01BCBC0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980A1BFC-B6EE-425B-B57E-33F01BCBC0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFD7CD46-9F92-4428-8648-B78910D43F34}
+	EndGlobalSection
+EndGlobal
