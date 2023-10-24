@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Xunit.Assem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixToolkits.Xunit.AssemblyFixture.UnitTests", "PhoenixToolkits.Xunit.AssemblyFixture.UnitTests\PhoenixToolkits.Xunit.AssemblyFixture.UnitTests.csproj", "{980A1BFC-B6EE-425B-B57E-33F01BCBC0CE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{6905B2BE-2FB9-4B37-92B4-066DA070C498}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

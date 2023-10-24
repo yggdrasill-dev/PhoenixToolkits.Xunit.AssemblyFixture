@@ -11,7 +11,18 @@
     <Company>Valhalla</Company>
     <Description>Xunit 擴充 AssemblyFixture 套件
 </Description>
+    <PackageProjectUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Xunit.AssemblyFixture</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Xunit.AssemblyFixture.git</RepositoryUrl>
+    <PackageTags>Xunit;AssemblyFixture</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="xunit.core" Version="2.5.3" />
