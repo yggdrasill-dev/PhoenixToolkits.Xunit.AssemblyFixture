@@ -4,17 +4,16 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <SqlQueryToolsConnectionString />
     <PackageId>PhoenixToolkits.Xunit.AssemblyFixture</PackageId>
     <Version>0.0.1</Version>
     <Authors>Phoenix</Authors>
     <Company>Valhalla</Company>
-    <Description>Xunit 擴充 AssemblyFixture 套件
-</Description>
+    <Description>Xunit 擴充 AssemblyFixture 套件</Description>
     <PackageProjectUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Xunit.AssemblyFixture</PackageProjectUrl>
     <RepositoryUrl>https://github.com/yggdrasill-dev/PhoenixToolkits.Xunit.AssemblyFixture.git</RepositoryUrl>
     <PackageTags>Xunit;AssemblyFixture</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsTestProject>false</IsTestProject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit.abstractions" Version="2.0.3" />
-    <PackageReference Include="xunit.core" Version="2.5.3" />
+    <PackageReference Include="xunit" Version="2.5.3" />
   </ItemGroup>
 
 </Project>
