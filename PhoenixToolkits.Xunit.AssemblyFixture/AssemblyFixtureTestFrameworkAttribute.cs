@@ -6,4 +6,5 @@ namespace PhoenixToolkits.Xunit.AssemblyFixture;
 [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
 public class AssemblyFixtureTestFrameworkAttribute : Attribute, ITestFrameworkAttribute
 {
+	public bool ParallelAllCases { get; set; } = false;
 }

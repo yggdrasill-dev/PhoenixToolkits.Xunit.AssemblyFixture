@@ -6,6 +6,7 @@ namespace PhoenixToolkits.Xunit.AssemblyFixture;
 public class XunitTestAssemblyRunnerWithAssemblyFixture : XunitTestAssemblyRunner
 {
 	private readonly Dictionary<Type, object> m_AssemblyFixtureMappings = new();
+	private readonly bool m_IsParallelAllCases = false;
 
 	public XunitTestAssemblyRunnerWithAssemblyFixture(
 		ITestAssembly testAssembly,
@@ -19,7 +20,15 @@ public class XunitTestAssemblyRunnerWithAssemblyFixture : XunitTestAssemblyRunne
 			  diagnosticMessageSink,
 			  executionMessageSink,
 			  executionOptions)
-	{ }
+	{
+		var testFrameworkAttr = ((IReflectionAssemblyInfo)TestAssembly.Assembly).Assembly
+			.GetCustomAttributes(typeof(AssemblyFixtureTestFrameworkAttribute), true)
+			.OfType<AssemblyFixtureTestFrameworkAttribute>()
+			.FirstOrDefault();
+
+		if (testFrameworkAttr is not null)
+			m_IsParallelAllCases = testFrameworkAttr.ParallelAllCases;
+	}
 
 	protected override async Task AfterTestAssemblyStartingAsync()
 	{
@@ -64,5 +73,6 @@ public class XunitTestAssemblyRunnerWithAssemblyFixture : XunitTestAssemblyRunne
 			messageBus,
 			TestCaseOrderer,
 			new ExceptionAggregator(Aggregator),
-			cancellationTokenSource).RunAsync();
+			cancellationTokenSource,
+			m_IsParallelAllCases).RunAsync();
 }

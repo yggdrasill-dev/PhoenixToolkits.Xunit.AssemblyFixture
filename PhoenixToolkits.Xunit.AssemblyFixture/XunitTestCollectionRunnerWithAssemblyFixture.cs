@@ -7,6 +7,7 @@ public class XunitTestCollectionRunnerWithAssemblyFixture : XunitTestCollectionR
 {
 	private readonly Dictionary<Type, object> m_AssemblyFixtureMappings;
 	private readonly IMessageSink m_DiagnosticMessageSink;
+	private readonly bool m_IsParallelAllCases;
 
 	public XunitTestCollectionRunnerWithAssemblyFixture(
 		Dictionary<Type, object> assemblyFixtureMappings,
@@ -16,7 +17,8 @@ public class XunitTestCollectionRunnerWithAssemblyFixture : XunitTestCollectionR
 		IMessageBus messageBus,
 		ITestCaseOrderer testCaseOrderer,
 		ExceptionAggregator aggregator,
-		CancellationTokenSource cancellationTokenSource)
+		CancellationTokenSource cancellationTokenSource,
+		bool isParallelAllCases)
 		: base(
 			  testCollection,
 			  testCases,
@@ -28,6 +30,7 @@ public class XunitTestCollectionRunnerWithAssemblyFixture : XunitTestCollectionR
 	{
 		m_AssemblyFixtureMappings = assemblyFixtureMappings;
 		m_DiagnosticMessageSink = diagnosticMessageSink;
+		m_IsParallelAllCases = isParallelAllCases;
 	}
 
 	protected override Task<RunSummary> RunTestClassAsync(
@@ -41,16 +44,26 @@ public class XunitTestCollectionRunnerWithAssemblyFixture : XunitTestCollectionR
 		foreach (var kvp in CollectionFixtureMappings)
 			combinedFixtures[kvp.Key] = kvp.Value;
 
-		// We've done everything we need, so let the built-in types do the rest of the heavy lifting
-		return new XunitTestClassRunner(
-			testClass,
-			@class,
-			testCases,
-			m_DiagnosticMessageSink,
-			MessageBus,
-			TestCaseOrderer,
-			new ExceptionAggregator(Aggregator),
-			CancellationTokenSource,
-			combinedFixtures).RunAsync();
+		return m_IsParallelAllCases
+			? new ParallelTestClassRunner(
+				testClass,
+				@class,
+				testCases,
+				m_DiagnosticMessageSink,
+				MessageBus,
+				TestCaseOrderer,
+				new ExceptionAggregator(Aggregator),
+				CancellationTokenSource,
+				combinedFixtures).RunAsync()
+			: new XunitTestClassRunner(
+				testClass,
+				@class,
+				testCases,
+				m_DiagnosticMessageSink,
+				MessageBus,
+				TestCaseOrderer,
+				new ExceptionAggregator(Aggregator),
+				CancellationTokenSource,
+				combinedFixtures).RunAsync();
 	}
 }

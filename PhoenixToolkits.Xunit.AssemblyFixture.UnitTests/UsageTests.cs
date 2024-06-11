@@ -4,19 +4,13 @@
 
 namespace PhoenixToolkits.Xunit.AssemblyFixture.UnitTests;
 
-public class UsageTests
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1041:Fixture arguments to test classes must have fixture sources", Justification = "<暫止>")]
+public class UsageTests(StubAssemblyFixture instance)
 {
-	private readonly StubAssemblyFixture m_Instance;
-
-	public UsageTests(StubAssemblyFixture instance)
-	{
-		m_Instance = instance;
-	}
-
 	[Fact]
 	public void AssemblyFixture使用方法()
 	{
-		Assert.NotNull(m_Instance);
+		Assert.NotNull(instance);
 		Assert.Equal(1, StubAssemblyFixture.InstanceCount);
 	}
 }
